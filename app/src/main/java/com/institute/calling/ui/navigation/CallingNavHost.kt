@@ -19,6 +19,7 @@ import com.institute.calling.ui.auth.OwnerPickScreen
 import com.institute.calling.ui.auth.PinScreen
 import com.institute.calling.ui.caller.CallerScreen
 import com.institute.calling.ui.owner.BranchDetailScreen
+import com.institute.calling.ui.owner.BranchStaffScreen
 import com.institute.calling.ui.owner.CallReviewScreen
 import com.institute.calling.ui.owner.ManagementScreen
 import com.institute.calling.ui.owner.OwnerHomeScreen
@@ -36,6 +37,7 @@ private object Routes {
     const val OWNER_BRANCH = "ownerBranch"
     const val OWNER_MANAGE = "ownerManage"
     const val OWNER_CALLS = "ownerCalls"
+    const val OWNER_STAFF = "ownerStaff"
 }
 
 @Composable
@@ -131,7 +133,17 @@ fun CallingNavHost(
         }
 
         composable(Routes.OWNER_MANAGE) {
-            ManagementScreen(onBack = { navController.popBackStack() })
+            ManagementScreen(
+                onBack = { navController.popBackStack() },
+                onOpenStaff = { branchId -> navController.navigate("${Routes.OWNER_STAFF}/$branchId") },
+            )
+        }
+
+        composable(
+            route = "${Routes.OWNER_STAFF}/{branchId}",
+            arguments = listOf(navArgument("branchId") { type = NavType.StringType }),
+        ) {
+            BranchStaffScreen(onBack = { navController.popBackStack() })
         }
 
         composable(
