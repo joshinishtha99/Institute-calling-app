@@ -1,0 +1,10 @@
+-keep,allowobfuscation,allowshrinking class com.institute.calling.ui.caller.CallerViewModel
+-keep,allowobfuscation,allowshrinking class com.institute.calling.ui.caller.CallerViewModel
+-keep,allowobfuscation,allowshrinking class com.institute.calling.ui.owner.BranchDetailViewModel
+-keep,allowobfuscation,allowshrinking class com.institute.calling.ui.owner.BranchDetailViewModel
+-keep,allowobfuscation,allowshrinking class com.institute.calling.ui.owner.CallReviewViewModel
+-keep,allowobfuscation,allowshrinking class com.institute.calling.ui.owner.CallReviewViewModel
+-keep,allowobfuscation,allowshrinking class com.institute.calling.ui.owner.ManagementViewModel
+-keep,allowobfuscation,allowshrinking class com.institute.calling.ui.owner.ManagementViewModel
+-keep,allowobfuscation,allowshrinking class com.institute.calling.ui.owner.OwnerViewModel
+-keep,allowobfuscation,allowshrinking class com.institute.calling.ui.owner.OwnerViewModel

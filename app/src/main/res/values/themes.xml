@@ -1,0 +1,7 @@
+<resources>
+    <!-- Base activity theme; all UI theming is done in Compose (see Theme.kt). -->
+    <style name="Theme.InstituteCalling" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+    </style>
+</resources>
