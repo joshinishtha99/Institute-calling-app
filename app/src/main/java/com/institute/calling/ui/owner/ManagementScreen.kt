@@ -54,6 +54,7 @@ private sealed interface AddTarget {
 @Composable
 fun ManagementScreen(
     onBack: () -> Unit,
+    onOpenStaff: (branchId: String) -> Unit,
     viewModel: ManagementViewModel = hiltViewModel(),
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
@@ -96,6 +97,7 @@ fun ManagementScreen(
                                 submitting = state.submitting,
                                 onAddBranch = { target = AddTarget.AddBranch(city.id, city.name) },
                                 onAddCaller = { branchId, branchName -> target = AddTarget.AddCaller(branchId, branchName) },
+                                onOpenStaff = onOpenStaff,
                             )
                         }
                     }
@@ -132,6 +134,7 @@ private fun CityBlock(
     submitting: Boolean,
     onAddBranch: () -> Unit,
     onAddCaller: (branchId: String, branchName: String) -> Unit,
+    onOpenStaff: (branchId: String) -> Unit,
 ) {
     Surface(color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.4f), shape = RoundedCornerShape(16.dp), modifier = Modifier.fillMaxWidth()) {
         Column(Modifier.padding(14.dp)) {
@@ -146,6 +149,7 @@ private fun CityBlock(
                         Text("${branch.callers.size} callers", fontSize = 12.sp, color = MaterialTheme.colorScheme.onSurfaceVariant)
                     }
                     TextButton(onClick = { onAddCaller(branch.id, branch.name) }, enabled = !submitting) { Text("+ caller") }
+                    TextButton(onClick = { onOpenStaff(branch.id) }) { Text("Manage") }
                 }
             }
         }
